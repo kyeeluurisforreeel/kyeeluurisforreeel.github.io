@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Friend Chess</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Friend Chess</h1>
+      <div id="statusText">Not connected</div>
+    </header>
+
+    <main>
+      <div id="left">
+        <div id="menu">
+          <button id="showCreate">Create Match</button>
+          <button id="showJoin">Join a Friend</button>
+        </div>
+
+        <div id="createUI" class="hidden">
+          <label>Choose Color:</label>
+          <select id="colorSelect">
+            <option value="w">White</option>
+            <option value="b">Black</option>
+          </select>
+          <label>Time per side (minutes):</label>
+          <input type="number" id="timeInput" value="5" min="1" max="60"/>
+          <button id="createBtn">Create Match</button>
+        </div>
+
+        <div id="joinUI" class="hidden">
+          <input id="codeInput" placeholder="Enter 6-digit match code" maxlength="6" />
+          <button id="joinBtn">Join Match</button>
+        </div>
+
+        <div id="boardContainer" class="hidden">
+          <div id="board" style="width: 420px"></div>
+          <button id="copyLinkBtn">Copy Match Link</button>
+          <button id="resignBtn">Resign</button>
+        </div>
+      </div>
+
+      <div id="right">
+        <div class="panel">
+          <div class="panel-row"><strong>Match Code:</strong> <span id="matchCode">—</span></div>
+          <div class="panel-row"><strong>Your Color:</strong> <span id="yourColor">—</span></div>
+          <div class="panel-row"><strong>Turn:</strong> <span id="turnDisplay">—</span></div>
+          <div class="panel-row"><strong>Status:</strong> <span id="matchStatus">—</span></div>
+        </div>
+
+        <div class="moves panel">
+          <h3>Moves</h3>
+          <ol id="moveList"></ol>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <small>Deploy this folder to GitHub Pages. Configure Firebase in firebase.js</small>
+    </footer>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chessboard-js/1.0.0/chessboard-1.0.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chess.js@1.0.0/chess.min.js"></script>
+  <script type="module" src="./script.js"></script>
+</body>
+</html>
