@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>About Blank Opener</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #111;
+      color: #0f0;
+      font-size: 2rem;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <button id="open">Open in about:blank</button>
+
+  <script>
+    document.getElementById("open").onclick = () => {
+      let win = window.open("about:blank", "_blank");
+      win.document.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>about:blank</title>
+          <style>
+            body {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              height: 100vh;
+              background: #111;
+              color: #0f0;
+              font-size: 2rem;
+              font-family: Arial, sans-serif;
+            }
+          </style>
+        </head>
+        <body>
+          ✅ Opened in about:blank
+        </body>
+        </html>
+      `);
+      win.document.close();
+    };
+  </script>
+</body>
+</html>
